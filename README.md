@@ -149,8 +149,9 @@ rama `sistema-completo`.
 ## 3. La ruta de versiones
 
 ```
-v1  api_facturas: CRUD de producto, solo PostgreSQL   ← USTED ESTÁ AQUÍ (cerrada: tag v1)
-v2  más tablas (persona, factura maestro-detalle…)
+v1  api_facturas: CRUD de producto, solo PostgreSQL   (cerrada: tag v1)
+v2  más tablas: persona, empresa, cliente, vendedor y
+    factura maestro-detalle vía SPs   ← USTED ESTÁ AQUÍ
 v3  segundo motor (MariaDB) — nace la fábrica y DB_PROVIDER
 v4  tercer motor (SQL Server) + docker compose completo
 v5  API genérica (/api/{tabla})
@@ -162,18 +163,18 @@ propia spec, y una versión está TERMINADA solo cuando pasa sus criterios de
 aceptación (se cierra con tag). Detalle completo:
 **[mapa de versiones](docs/spec_kit/versiones/0_mapa_versiones.md)**.
 
-## 4. Las especificaciones de la versión actual (v1)
+## 4. Las especificaciones de la versión actual (v2)
 
 | Documento | Qué contiene |
 |---|---|
 | [Constitución](docs/spec_kit/1_constitution.md) | Las reglas permanentes del proyecto |
-| [2_spec.md](docs/spec_kit/versiones/v1_producto_postgres/2_spec.md) | QUÉ construir y los 6 criterios de aceptación |
-| [3_plan.md](docs/spec_kit/versiones/v1_producto_postgres/3_plan.md) | CÓMO: stack, carpetas, capas e interfaces |
-| [4_research.md](docs/spec_kit/versiones/v1_producto_postgres/4_research.md) | Las decisiones y sus alternativas descartadas *(lectura opcional)* |
-| [5_data_model.md](docs/spec_kit/versiones/v1_producto_postgres/5_data_model.md) | La BD completa (dada) y la tabla `producto` que usa la v1 |
-| [6_contracts.md](docs/spec_kit/versiones/v1_producto_postgres/6_contracts.md) | Los 7 endpoints con formatos exactos (5 verbos HTTP) |
-| [7_quickstart.md](docs/spec_kit/versiones/v1_producto_postgres/7_quickstart.md) | Smoke test para validar lo construido |
-| [8_tasks.md](docs/spec_kit/versiones/v1_producto_postgres/8_tasks.md) | Las fases de construcción, en orden |
+| [2_spec.md](docs/spec_kit/versiones/v2_mas_tablas/2_spec.md) | QUÉ construir y los 6 criterios de aceptación |
+| [3_plan.md](docs/spec_kit/versiones/v2_mas_tablas/3_plan.md) | CÓMO: el molde replicado 4 veces y la factura vía SPs |
+| [4_research.md](docs/spec_kit/versiones/v2_mas_tablas/4_research.md) | Las decisiones y sus alternativas descartadas *(lectura opcional)* |
+| [5_data_model.md](docs/spec_kit/versiones/v2_mas_tablas/5_data_model.md) | Las 5 tablas nuevas, sus semillas, el trigger y los SPs |
+| [6_contracts.md](docs/spec_kit/versiones/v2_mas_tablas/6_contracts.md) | Los 28 endpoints nuevos con formatos exactos |
+| [7_quickstart.md](docs/spec_kit/versiones/v2_mas_tablas/7_quickstart.md) | Regresión v1 y smoke test de la v2 |
+| [8_tasks.md](docs/spec_kit/versiones/v2_mas_tablas/8_tasks.md) | Las fases de construcción, en orden |
 
 ## 5. Material conceptual del curso
 
