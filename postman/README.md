@@ -12,7 +12,8 @@ no tiene Swagger y depende de su colección).
 1. Instale **Postman** (postman.com/downloads). Si le pide cuenta, puede
    usar la opción de cliente ligero sin registrarse.
 2. **Import** (botón arriba a la izquierda) → arrastre el archivo
-   `coleccion_v1.postman_collection.json` de esta carpeta.
+   `coleccion_v2.postman_collection.json` de esta carpeta (acumulativa:
+   trae la v1 y la v2 — igual que el proyecto).
 3. Con el proyecto corriendo (`docker compose up -d`), abra cualquier
    petición y dele **Send**.
 
@@ -31,5 +32,5 @@ La colección usa la variable `base` = `http://localhost:8002` (el proyecto
 del curso). Si está probando **SU reconstrucción** (la de la
 [GUIA_IA](../docs/GUIA_IA.md), que corre en el puerto 8102): clic en la
 colección → pestaña **Variables** → cambie `base` a
-`http://localhost:8102`. Una sola edición y las 13 peticiones apuntan a su
+`http://localhost:8102`. Una sola edición y las 27 peticiones apuntan a su
 proyecto.

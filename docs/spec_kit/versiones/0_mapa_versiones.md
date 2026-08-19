@@ -19,7 +19,7 @@
 | Versión | Carpeta | Qué EXISTE al terminarla | Qué concepto nuevo enseña |
 |---|---|---|---|
 | **v1** | [v1_producto_postgres/](v1_producto_postgres/2_spec.md) | SOLO `api_facturas` con el CRUD de **producto** contra **PostgreSQL**. **Nada de front, nada de API genérica, ningún otro motor.** (La BD `bdfacturas` se crea COMPLETA desde el inicio — es infraestructura dada; la API solo toca `producto`.) | Arquitectura en capas con interfaces desde el día 1 |
-| **v2** | [v2_mas_tablas/](v2_mas_tablas/2_spec.md) — **En curso** | api_facturas con persona, empresa, cliente, vendedor y factura (maestro-detalle + trigger), solo PostgreSQL | Validación Pydantic por entidad; FKs, integridad referencial y lógica en la BD |
+| **v2** | [v2_mas_tablas/](v2_mas_tablas/2_spec.md) — **Cerrada** (tag `v2`) | api_facturas con persona, empresa, cliente, vendedor y factura (maestro-detalle + trigger), solo PostgreSQL | Validación Pydantic por entidad; FKs, integridad referencial y lógica en la BD |
 | **v3** | v3_segundo_motor/ | Lo mismo, ahora también contra **MariaDB** | Nace `DB_PROVIDER` y la **fábrica** — abierto/cerrado en acción: cero cambios en controllers y servicios |
 | **v4** | v4_sqlserver_docker/ | Tercer motor (**SQL Server**), las 12 tablas, y todo orquestado con **docker compose** | Liskov entre repositorios; contenedores, volúmenes y healthchecks |
 | **v5** | v5_api_generica/ | Se suma la **API Genérica** (`/api/{tabla}` para cualquier tabla, puerto 8001) | El contraste genérico vs por-entidad sobre la misma BD |
