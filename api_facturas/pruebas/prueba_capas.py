@@ -19,7 +19,38 @@ from pathlib import Path
 # módulos para poder correrlo directo con `python pruebas\prueba_capas.py`:
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+from servicios.servicio_persona import ServicioPersona  # noqa: E402
 from servicios.servicio_producto import ServicioProducto  # noqa: E402
+
+
+class RepositorioPersonaFalsoEnMemoria:
+    """v2 — el molde una vez más: el falso de PERSONA (mismo contrato que
+    el PostgreSQL real, un diccionario por debajo)."""
+
+    def __init__(self):
+        self._datos: dict[str, dict] = {}
+
+    async def obtener_todos(self, limite: int) -> list[dict]:
+        return [self._datos[c] for c in sorted(self._datos)][:limite]
+
+    async def obtener_por_codigo(self, codigo: str) -> dict | None:
+        return self._datos.get(codigo)
+
+    async def crear(self, datos: dict) -> bool:
+        self._datos[datos["codigo"]] = dict(datos)
+        return True
+
+    async def actualizar(self, codigo: str, datos: dict) -> int:
+        if codigo not in self._datos:
+            return 0
+        self._datos[codigo].update(datos)
+        return 1
+
+    async def eliminar(self, codigo: str) -> int:
+        if codigo not in self._datos:
+            return 0
+        del self._datos[codigo]
+        return 1
 
 
 class RepositorioFalsoEnMemoria:
@@ -112,6 +143,30 @@ async def main() -> None:
 
     print("CRITERIO 6 OK: el servicio funciona con el repositorio falso, "
           "sin PostgreSQL")
+
+    # ------------------------------------------------------------------
+    # v2 — el molde una vez más, ahora PERSONA (criterio 6 de la v2)
+    # ------------------------------------------------------------------
+    servicio_persona = ServicioPersona(RepositorioPersonaFalsoEnMemoria())
+
+    await servicio_persona.crear({"codigo": "T1", "nombre": "Test",
+                                  "email": "t1@test.com", "telefono": "300"})
+    lista = await servicio_persona.listar(10)
+    verificar(lista[0]["codigo"] == "T1", "persona: crear + listar")
+    persona = await servicio_persona.obtener("T1")
+    verificar(persona["email"] == "t1@test.com", "persona: obtener")
+    verificar(await servicio_persona.actualizar("T1", {"telefono": "301"}) == 1,
+              "persona: actualizar")
+    verificar(await servicio_persona.eliminar("T1") == 1, "persona: eliminar")
+
+    try:
+        await servicio_persona.obtener("NOEXISTE")
+        verificar(False, "persona: debió lanzar LookupError")
+    except LookupError:
+        pass  # esperado → 404
+
+    print("PRUEBA DE CAPAS OK: producto y persona funcionan con "
+          "repositorios falsos, sin PostgreSQL")
 
 
 if __name__ == "__main__":
