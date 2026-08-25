@@ -1,13 +1,13 @@
 {
   "info": {
     "name": "API Facturas v2 (Python + PostgreSQL)",
-    "description": "Acumulativa: las 13 peticiones de la v1 (producto) + las 14 de la v2 (los moldes persona/empresa/cliente/vendedor y la factura maestro-detalle vía procedimientos almacenados). Orden didáctico; cada petición explica en su descripción qué esperar. La variable {{base}} apunta al proyecto del curso (localhost:8002); para probar SU reconstrucción cámbiela a localhost:8102.",
+    "description": "Acumulativa: las 13 peticiones de la v1 (producto) + las 14 de la v2 (los moldes persona/empresa/cliente/vendedor y la factura maestro-detalle vía procedimientos almacenados). Orden didáctico; cada petición explica en su descripción qué esperar. La variable {{base}} apunta al proyecto del curso (localhost:8003); para probar SU reconstrucción cámbiela a localhost:8103.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
     {
       "key": "base",
-      "value": "http://localhost:8002"
+      "value": "http://localhost:8003"
     }
   ],
   "item": [

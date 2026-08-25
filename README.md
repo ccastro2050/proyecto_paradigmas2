@@ -39,9 +39,9 @@ terminar quedan corriendo la base de datos (bdfacturas completa) y la API:
 
 | Qué | Dónde |
 |---|---|
-| **API Facturas — Swagger** (probar los endpoints) | http://localhost:8002/docs |
-| Diagnóstico | http://localhost:8002/ |
-| PostgreSQL (para DBeaver/pgAdmin, opcional) | `localhost:15432` · `paradigmas`/`paradigmas123` |
+| **API Facturas — Swagger** (probar los endpoints) | http://localhost:8003/docs |
+| Diagnóstico | http://localhost:8003/ |
+| PostgreSQL (para DBeaver/pgAdmin, opcional) | `localhost:15433` · `paradigmas`/`paradigmas123` |
 
 Pruebe en Swagger: PUT con solo `{"stock": 99}` → 422; el mismo body en
 PATCH → 200. Esa diferencia es parte de lo que enseña la v1.
@@ -104,7 +104,7 @@ proyecto_paradigmas2/
 ├── backupdb/                    # Respaldos (dumps) de la BD — su README explica
 │                                #   cómo hacer el backup y cómo restaurarlo
 │
-├── api_facturas/                # LA API DE LA v1 — FastAPI (puerto 8002)
+├── api_facturas/                # LA API DE LA v1 — FastAPI (puerto 8003)
 │   ├── Dockerfile               # Su imagen: python:3.12-slim + requirements
 │   ├── requirements.txt         # Dependencias exactas (fastapi, uvicorn, sqlalchemy, asyncpg)
 │   ├── main.py                  # Crea la app, configura CORS y registra el router
