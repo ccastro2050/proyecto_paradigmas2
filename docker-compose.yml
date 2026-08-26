@@ -6,7 +6,7 @@
 #
 # Uso:  docker compose up -d --build      (un solo comando)
 # Este archivo CRECE con las versiones: v3 suma MariaDB,
-# v4 suma SQL Server, v5 la API genérica, v6 el front.
+# v4 suma SQL Server, v5 el front.
 # ==============================================================
 services:
 

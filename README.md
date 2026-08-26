@@ -154,8 +154,7 @@ v2  más tablas: persona, empresa, cliente, vendedor y
     factura maestro-detalle vía SPs   ← USTED ESTÁ AQUÍ
 v3  segundo motor (MariaDB) — nace la fábrica y DB_PROVIDER
 v4  tercer motor (SQL Server) + docker compose completo
-v5  API genérica (/api/{tabla})
-v6  frontend Flask
+v5  frontend Flask
 ```
 
 La regla del juego: la **constitución** es permanente, cada versión tiene su
