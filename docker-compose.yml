@@ -12,6 +12,7 @@ services:
 
   # --- Base de datos: PostgreSQL 16 con bdfacturas completa ---
   postgres:
+    restart: unless-stopped   # si el PC se reinicia, este servicio revive con Docker
     image: postgres:16-alpine
     environment:
       POSTGRES_DB: bdfacturas_postgres_local
